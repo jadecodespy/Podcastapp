@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block body_content %}
+<h1>Enter a Topic</h1>
+<div class="form">
+	<form method="POST" action="">
+		{{ form.hidden_tag() }}
+		<div class="form-group">
+			{{ form.title.label }}
+			{% if form.title.errors %}
+				{{ form.title }}
+				<div class="error">
+					{% for error in form.title.errors %}
+						<span>{{ error }}</span>
+					{% endfor %}
+				</div>
+			{% else %}
+				{{ form.title }}
+			{% endif %}
+		</div>
+        <br>
+        <div class="form-group">
+            {{ form.description.label }}
+            {% if form.description.errors %}
+                {{ form.description }}
+                <div class="error">
+                    {% for error in form.description.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.description }}
+            {% endif %}
+        </div>
+        <br>
+		<div class="form-group">
+			{{ form.submit }}
+		</div>
+	</form>
+</div>
+{% endblock body_content %}

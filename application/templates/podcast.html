@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block body_content %}
+<h1>Enter a Podcast</h1>
+<div class="form">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.title.label }}
+            {% if form.title.errors %}
+                {{ form.title }}
+                <div class="error">
+                    {% for error in form.title.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.title }}
+            {% endif %}
+        </div>
+        <br>
+        <div class="form-group">
+            {{ form.detail.label }}
+            {% if form.detail.errors %}
+                {{ form.detail }}
+                <div class="error">
+                    {% for error in form.detail.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.detail }}
+            {% endif %}
+        </div>
+        <br>
+        <div class="form-group">
+            {{ form.topic_one.label }}
+            {% if form.topic_one.errors %}
+                {{ form.topic_one }}
+                <div class="error">
+                    {% for error in form.topic_one.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.topic_one }}
+            {% endif %}
+        </div>
+        <br>
+        <div class="form-group">
+            {{ form.submit }}
+        </div>
+    </form>
+</div>
+{% endblock body_content %}
