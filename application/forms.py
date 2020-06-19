@@ -3,6 +3,31 @@ from wtforms import StringField, DateTimeField, FloatField, PasswordField, Boole
 from wtforms.validators import DataRequired, Length, ValidationError
 from application import db
 
+
+class UpdateTopicsForm(FlaskForm):
+     title = StringField('Title',
+            validators = [
+                DataRequired(),
+                Length(min=4, max=100)
+            ]
+    
+     )
+     
+     
+     description = StringField('Description',
+             validators = [
+                 DataRequired(),
+                 Length(min=4,max=250)
+             ]
+     )
+    
+     submit = SubmitField('Update')
+
+
+
+
+
+
 class Addtopics(FlaskForm):
     title = StringField('Title',
             validators = [

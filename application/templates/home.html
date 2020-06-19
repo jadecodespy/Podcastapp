@@ -4,6 +4,18 @@
 
 <h1>Welcome to Podcast Scheduler</h1>
 <p>Your Scheduled Podcasts and Topic</p>
+{% for podcast in podcasts %}
+
+
+<p>{{ podcast.podcast_title }}</p> 
+{{ podcast.podcast_detail }}
+{% for episode in podcast.episode %}
+{{ episode.topic_title }} {{ episode.topic_desc }}
+{% endfor %}
+
+<form action="{{ url_for('updatetopics', id = podcast.id) }}">
+	<button type="submit">Update</button>
+{% endfor %}
 
 {% endblock %}
 
