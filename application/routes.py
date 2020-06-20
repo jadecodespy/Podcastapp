@@ -55,24 +55,38 @@ def podcast():
     return render_template('podcast.html', title='Enter Podcast', form = form)
 
 
-@app.route('/UpdateTopics/<int:id>', methods=['GET', 'POST'])
+@app.route('/updatetopics/<int:id>', methods=['GET', 'POST'])
 def updatetopics(id):
     form = UpdateTopicsForm()
     topic=Topics.query.filter_by(id = id).first()
-    if form.validate_on_submit:
+    if form.validate_on_submit():
         topic.topic_title = form.title.data
         topic.topic_desc = form.description.data
 
         db.session.commit()
         return redirect(url_for('home'))
-    elif request.method == 'GET':
+    else:
         form.title.data = topic.topic_title
         form.description.data = topic.topic_desc
+    
 
-    else:
-        print(form.error)
 
-    return render_template('updatetopic.html', title = 'Update Topic', form = form)
+
+    return render_template('updatetopic.html', title = 'Update Topic', form = form, topic = topic)
+
+
+
+
+
+@app.route("/topics/delete", methods = ["GET", "POST"])
+def topic_delete():
+    topics=topic.id
+    episode= Topics.query.filter_by(id=topics).first()
+    db.session.delete(episode)
+    db.session.commit()
+    return redirect(url_for('home'))
+
+
 
 
 

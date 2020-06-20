@@ -11,11 +11,20 @@
 {{ podcast.podcast_detail }}
 {% for episode in podcast.episode %}
 {{ episode.topic_title }} {{ episode.topic_desc }}
-{% endfor %}
 
-<form action="{{ url_for('updatetopics', id = podcast.id) }}">
+
+
+<form method="POST" action="{{ url_for('updatetopics', id=episode.id) }}">
 	<button type="submit">Update</button>
-{% endfor %}
 
+
+</form>
+<form action="{{ url_for('topic_delete') }}">
+	<button type="submit">Delete Episode</button>
+
+
+</form>
+{% endfor %}
+{% endfor %}
 {% endblock %}
 
