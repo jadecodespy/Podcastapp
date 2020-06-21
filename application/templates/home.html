@@ -3,14 +3,15 @@
 
 
 <h1>Welcome to Podcast Scheduler</h1>
-<p>Your Scheduled Podcasts and Topic</p>
+<h2>Your Scheduled Podcasts and Topic</h2>
 {% for podcast in podcasts %}
 
 
-<p>{{ podcast.podcast_title }}</p> 
-{{ podcast.podcast_detail }}
+<h3>{{ podcast.podcast_title }}</h3> 
+<p>{{ podcast.podcast_detail }}</p>
 {% for episode in podcast.episode %}
-{{ episode.topic_title }} {{ episode.topic_desc }}
+{{ episode.topic_title }} 
+{{ episode.topic_desc }}
 
 
 
@@ -19,7 +20,7 @@
 
 
 </form>
-<form action="{{ url_for('topic_delete') }}">
+<form action="{{ url_for('topic_delete', id=episode.id) }}">
 	<button type="submit">Delete Episode</button>
 
 

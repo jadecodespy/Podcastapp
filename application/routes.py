@@ -42,8 +42,10 @@ def podcast():
         )
 
         if form.topic_one.data!= '':
+            print("if form topic one")
             topic_one = Topics.query.filter_by(topic_title = form.topic_one.data).first()
             if topic_one:
+                print("iftopic one")
                 podcast.episode.append(topic_one)
         db.session.add(podcast)
         db.session.commit()
@@ -78,10 +80,9 @@ def updatetopics(id):
 
 
 
-@app.route("/topics/delete", methods = ["GET", "POST"])
-def topic_delete():
-    topics=topic.id
-    episode= Topics.query.filter_by(id=topics).first()
+@app.route('/topics/delete/<int:id>', methods = ["GET", "POST"])
+def topic_delete(id):
+    episode= Topics.query.filter_by(id=id).first()
     db.session.delete(episode)
     db.session.commit()
     return redirect(url_for('home'))
