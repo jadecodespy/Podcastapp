@@ -57,11 +57,15 @@ If you click the delete button, it should remove the topic and detail under the 
 The below image is an Entity relationship diagram (ERD) showing the structure of the database. The first image shows what should have been in the database and the second image shows what was implemented in the database.
 The app model is a many to many relationships between the Podcast and Topics table using an association table. This allows for the topic to be inputted in the podcast and vice versa.
 
+![erd1](https://github.com/jadecodespy/Podcastapp/blob/master/podcast/podcast/before.png?raw=true)
+
+![erd2](https://github.com/jadecodespy/Podcastapp/blob/master/podcast/podcast/picture8.png?raw=true)
+
 
 
 ## CI Pipeline
 
-1[ci](https://github.com/jadecodespy/Podcastapp/blob/master/podcast/podcast/image1.jpg?raw=true)
+![ci](https://github.com/jadecodespy/Podcastapp/blob/master/podcast/podcast/image1.jpg?raw=true)
 
 
 ## Trello Board
@@ -85,6 +89,8 @@ https://trello.com/b/GVEQ2GPc/podcast-scheduling
 
 ## Risk Assessment 
 https://docs.google.com/spreadsheets/d/19RzC2ij48FtX0PMgEw-ZFwpwvsn1Fmm9NylZkVbob7Y/edit?usp=sharing
+
+![Risk](https://github.com/jadecodespy/Podcastapp/blob/master/podcast/risky.jpg?raw=true)
 
 ## Current Issues 
 
