@@ -12,3 +12,4 @@ Flask-Testing==0.8.0
 pytest==5.4.3
 pytest-cov==2.10.0
 Werkzeug==0.16.1
+PyMySQL==0.9.3
