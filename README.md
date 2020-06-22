@@ -26,7 +26,10 @@ To complete this task, I created a podcast scheduling application that allows yo
 *	Code integrated into a Version Control System to be built through a CI server and deployed to a cloud based VM.
 
 ## App Functionality
-To use this app, you first need to click on the home page to see if any podcast episode has been scheduled (an episode is a podcast with a topic title). If there is nothing on the home page, then you click the topics page.
+To use this app, you first need to click on the home page to see if any podcast episode has been scheduled (an episode is a podcast with a topic title).
+
+
+If there is nothing on the home page, then you click the topics page.
 When you click the topics nav bar, you should be directed to the page where you can fill out a form to add a topic to the database.
 To create a podcast episode, you need to click on the page and fill out the forms there. Input a podcast title, detail, and fill in the topic title (from above).
 When you create an episode, you are redirected to the home page, where you can see an update and delete button. When you click the update button, it should redirect you to an update page, where you can update your topic title and description.
@@ -53,8 +56,6 @@ The first improvement is to the front-end look. Id like to make them visually ap
 
 ## Author
 Jadesola Kanimodo
-
-
 
 
 
