@@ -7,6 +7,7 @@ from application import app, db
 from application.models import Topics, Podcast
 from os import getenv
 
+
 class TestBase(TestCase):
     def create_app(self):
         config_name = 'testing'
@@ -22,6 +23,12 @@ class TestBase(TestCase):
         db.session.commit()
         db.drop_all()
         db.create_all()
+
+
+
+        update=Topics(topic_title='Test Title', topic_desc='Test Description01')
+        db.session.add(update)
+        db.session.commit
     
     def tearDown(self):
         db.session.remove()
@@ -33,6 +40,19 @@ class TestViews(TestBase):
 
         response = self.client.get(url_for('home'))
         self.assertEqual(response.status_code, 200)
+
+    def test_topics_view(self):
+        response = self.client.get(url_for('topics'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_podcast_view(self):
+        response = self.client.get(url_for('podcast'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_schedule_view(self):
+        response = self.client.get(url_for('schedule'))
+        self.assertEqual(response.status_code, 200)
+        
 
 
 
@@ -66,6 +86,9 @@ class TestPodcast(TestBase):
             )
             self.assertIn(b'Test Title', response.data)
 
+
+
+
 class Testupdatetopic(TestBase):
     def test_add_update_topic(self):
         with self.client:
@@ -78,7 +101,4 @@ class Testupdatetopic(TestBase):
                     follow_redirects=True
             )
             self.assertIn(b'Test Title', response.data)
-
-
-
 
